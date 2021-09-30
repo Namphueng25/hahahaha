@@ -1,9 +1,11 @@
 <?php class staff{
-    public $id_staff,$fname_staff;
-    public function __construct($id_staff,$fname_staff)
+    public $s_id,$s_name,$s_rank,$s_password;
+    public function __construct($s_id,$s_name,$s_rank,$s_password)
     {
-        $this->id_staff =$id_staff;
-        $this->fname_staff=$fname_staff;
+        $this->s_id, =$s_id;
+        $this->s_name=$s_name;
+        $this->s_rank=$s_rank;
+        $this->s_password=$s_password;
     }
     public static function getAll()
     {
@@ -12,10 +14,11 @@
         $sql="select * from staff";
         $result = $conn->query($sql);
        while($my_row = $result->fetch_assoc()){
-            $id_staff=$my_row[id_staff];
-            $fname_staff=$my_row[fname_staff];
-            $staffList[] = new staff($id_staff,$fname_staff);
-    
+            $s_id=$my_row[s_id];
+            $s_name=$my_row[s_name];
+            $s_rank=$my_row[s_rank];
+            $s_password=$my_row[s_password];
+            $staffList[] = new staff($s_id,$s_name,$s_rank,$s_password);   
         }
         require("connection_close.php");
         return $staffList;
