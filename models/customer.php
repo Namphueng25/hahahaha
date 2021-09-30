@@ -1,9 +1,9 @@
 <?php class customer{
-    public $id_customer,$name_customer;
-    public function __construct($id_customer,$name_customer)
+    public $c_id,$c_Fname;
+    public function __construct($c_id,$c_Fname)
     {
-        $this->id_customer =$id_customer;
-        $this->name_customer=$name_customer;
+        $this->c_id =$c_id
+        $this->c_Fname=$c_Fname;
     }
     public static function getAll()
     {
@@ -12,9 +12,9 @@
         $sql="select * from customer";
         $result = $conn->query($sql);
        while($my_row = $result->fetch_assoc()){
-            $id_customer=$my_row[id_customer];
-            $name_customer=$my_row[name_customer];
-            $customerList[] = new customer($id_customer,$name_customer);
+            $c_id=$my_row[c_id];
+            $c_Fname=$my_row[c_Fname];
+            $customerList[] = new customer($c_id,$c_Fname);
     
         }
         require("connection_close.php");
